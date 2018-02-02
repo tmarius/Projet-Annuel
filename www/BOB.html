@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.1.min.css" />
+	<title>Loading data into a Cordova app</title>
+</head>
+<body>
+  
+  <div data-role="page">
+  <div data-role="header">
+    <h1>Welcome To My Form Submit Example</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+    <form>
+      <div class="ui-field-contain">
+		<label for="email">
+			<b>Id</b></label>
+			<input type="number" id="id" name="id">
+		<label for="comment">
+			<b>Nom</b></label>
+			<input type="text" id="nom" name="nom" ></text>
+		 </div>
+		 <input type="submit" data-inline="true" value="Submit">
+	</form> 
+  </div>
+  <div data-role="footer">
+    <h1>Developed by Tareq Assaf</h1>
+  </div>
+</div>
+  <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>  
+  <script type="text/javascript" src="js/jquery.mobile-1.4.1.min.js"></script> 
+  
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+    
+$('form').submit(function(){
+	var postData = $(this).serialize();
+	
+	$.ajax({
+		type: 'POST',
+		data: postData,
+		url: 'http://barchezalphonse.fr',
+		success: function(data){
+			console.log(data);
+			alert('Your comment was successfully added');
+		},
+		error: function(){
+			console.log(data);
+			alert('There was an error adding your comment');
+		}
+	});
+	
+	return false;
+});
+    
+    
+
+        </script>
+</body>
+</html>

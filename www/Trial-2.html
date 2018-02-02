@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- Appel du css qu'on utilise w3, voir le site https://www.w3schools.com/w3css/default.asp pour tout information au sujet du css et son utilisation -->
+		<link rel="stylesheet" href="css/w3.css">
+        <title>Home Page</title>
+    </head>
+    <body>
+	
+		
+	
+		
+		<div class="w3-bar w3-dark-grey">
+			<a href="index.php" class="w3-bar-item w3-button">  <img src="img/LOGO1.png" class="w3-round-small" alt="Norway" style="width:30%"> </a> 
+			<a href="Test.js" style="width:16%" class="w3-bar-item w3-button">Promotions</a>
+			<a href="Test.php" style="width:16%" class="w3-bar-item w3-button">Boisson</a>
+			<a href="contact.php" style="width:16%" class="w3-bar-item w3-button">Plat</a>
+			<a href="tutorial.php" style="width:16%" class="w3-bar-item w3-button">Evenement</a>
+			<a href="how.php" style="width:16%" class="w3-bar-item w3-button">C/R</a> 
+			<a style="width:16%" class="w3-bar-item w3-button">
+				<form method="POST"  action="research.php" >
+					<div class="w3-row">
+						<input class="w3-input w3-light-gray w3-col m9" name="A_changer" id="A_changer"  placeholder="Envie de Kro?" /> 
+					</div>
+				</form>
+			</a>
+		</div>
+		
+		<div class="w3-display-container w3-animate-top">
+			<img src="img/TEST2.png" alt="Lights" style="width:200%">
+				
+			<div class="w3-display-topmiddle w3-large w3-container w3-col s10 m10 w3-row">
+				  <div class="w3-col s12 m12">
+						<div class="w3-panel w3-pale-red w3-round-xlarge w3-padding-32">
+							<p>Promotions</p>
+							<img src="img/TEST.jpg" class="w3-round-small w3-grayscale" alt="Norway" style="width:20%">
+						</div> 
+				  </div>
+			</div>
+			
+			<!-- <div class="w3-display-middle w3-large w3-container w3-col s10 m10 w3-row"> -->
+				  <!-- <div class="w3-col s12 m12"> -->
+						<!-- <div class="w3-panel w3-khaki w3-round-xlarge w3-padding-24"> -->
+							<!-- <p>Evenements</p> -->
+						<!-- </div>  -->
+				  <!-- </div> -->  
+			<!-- </div> -->
+			
+			<div class="w3-display-bottommiddle w3-large w3-col s10 m10 w3-container w3-row">
+				  <div class="w3-col s12 m12">
+						<div class="w3-panel w3-light-blue w3-round-xlarge w3-padding-24">
+							<p>Boissons</p>
+						</div> 
+				  </div>
+				  <div class="w3-col s12 m12">
+						<div class="w3-panel w3-khaki w3-round-xlarge w3-padding-24">
+							<p>Evenements</p>
+						</div> 
+				  </div>
+			</div>
+			
+			
+		</div>
+	
+	
+	<!-- L'image orginal legerement grisé rend bien aussi. Vrai image preferable pour le final. <img src="img/TEST.jpg" alt="Table" class="w3-grayscale"> -->
+	
+	<!--NOTE : Pour utiliser apache cordova et le connecter a la base de donnee, il faut utiliser des requete AJAX et configurer les 2 coté -->
+	
+	
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
