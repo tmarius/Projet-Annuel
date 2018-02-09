@@ -42,3 +42,39 @@ function loginUser() {
 		});
 	}
 }
+
+
+$(function boby() {  
+  $('#clickme').click(function() {
+       $.ajax({
+       url: 'http://barchezalphonse.fr',
+       dataType: 'json',
+       success: function(data) {
+          var items = [];
+
+          $.each(data, function(key, val) {
+
+            items.push('<li id="' + key + '">' + val + '</li>');    
+		
+          });
+
+		  var yolo = 'Variable locale !';
+		  $("<h4> BOOP </h4>").appendTo( "#tester" );
+		  
+		  document.getElementById('foo').innerHTML = data.description;
+		  
+          $('<ul/>', {
+             'class': 'interest-list',
+             html: items.join('')
+          }).appendTo('body');
+
+       },
+      statusCode: {
+         404: function() {
+           alert('There was a problem with the server.  Try again soon!');
+         }
+       }
+    });
+  });
+});
+
