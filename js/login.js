@@ -25,7 +25,8 @@ function loginUser() {
 					if(sessionStorage != undefined)
 					{
 						sessionStorage.setItem("user", response.user);
-						window.location="menu.html";
+						//document.getElementById('boisson').innerHTML = response.description;
+						window.location="trial.html";
 					}
 				}
 				else
@@ -78,3 +79,23 @@ $(function boby() {
   });
 });
 
+$(function ChargerInfo() {
+       $.ajax({
+       url: 'http://barchezalphonse.fr',
+       dataType: 'json',
+       success: function(data) {
+         
+		 
+		  
+		  document.getElementById('boisson').innerHTML = data.description;
+		  
+        
+
+       },
+      statusCode: {
+         404: function() {
+           alert('There was a problem with the server.  Try again soon!');
+         }
+       }
+    });
+  });
