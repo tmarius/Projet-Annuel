@@ -99,3 +99,37 @@ $(function ChargerInfo() {
        }
     });
   });
+  
+$(function Trial() {
+       $.ajax({
+       url: 'http://barchezalphonse.fr',
+       dataType: 'json',
+       success: function(data) {
+         
+		var code = "<div class='w3-col s12 m12'>";	
+		
+		for (i=0;i<5;i++) 
+		{
+			code += "<div class='w3-col s12 m12'>";
+				code += "<div class='w3-panel w3-light-blue w3-round-xlarge w3-padding-24' >";
+					code += "Hello world";
+				code += "</div>"; 
+			code += "</div>"; 
+		}
+		code += "</div>"; 
+	
+		
+		document.getElementById('trial').innerHTML = code;
+		//window.alert(code);
+        
+
+       },
+      statusCode: {
+         404: function() {
+           alert('There was a problem with the server.  Try again soon!');
+         }
+       }
+    });
+  }); 
+  
+  
