@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>19. Using jQuery to retrieve JSON via AJAX</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>	
-	<script src="js/login.js"></script>
-</head>
+	<head>
+        <title>Home Page</title>
+		<link rel="stylesheet" href="css/w3.css"> <!-- appele le css w3  -->
+		<link rel="stylesheet" type="text/css" href="../css/style.css">  <!-- appele l'autre css  -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>	<!-- appele le script de jquery  -->
+		<script src="js/login.js"></script>	  <!-- appele le script java script dans le dossie js  -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
 
-<body>
-  <h1 id="title">19. Using jQuery to retrieve JSON via AJAX</h1>
-
-  <a href="#" id="clickme">Get JSON Data</a>
-  
-  <span>I have nothing more to say... </span>
- 
-  <div id="foo">FOO! </div>
-  <div id="tester">FOO! </div>
- 
-  <script>
-  $( "span" ).appendTo( "#foo" );
-  </script>
-	
-</body>
+	<body onload="TheFetch() ">
+	<!-- La barre de menu -->
+		<div class="w3-display-container">
+			<div class="w3-bar w3-dark-grey"> 
+				<a href="index.html" class="w3-bar-item w3-button">  <img src="img/LOGO1.png" class="w3-round-small" alt="Norway"  style="width:20%"</a> 
+				<a href="index.html"  class="w3-bar-item w3-button">Promotions</a>
+				<a href="boisson.html"  class="w3-bar-item w3-button">Boisson</a>
+				<a href="index.html"  class="w3-bar-item w3-button">Plat</a>
+				<a href="evenement.html"  class="w3-bar-item w3-button">Evenement</a>
+			</div>
+		</div>	
+		
+	</body>
 
 </html>
