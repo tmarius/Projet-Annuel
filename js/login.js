@@ -98,26 +98,33 @@
 	
 	
 	
-$(function ChargerInfo() {
-       $.ajax({
-       url: 'http://barchezalphonse.fr',
-       dataType: 'json',
-       success: function(data) 
-	   {
-         
-		 
-		//document.getElementById('boisson').innerHTML = data.description;
-		window.alert(BOOP);
-        
-
-       },
-		statusCode: {
-         404: function() {
-           alert('There was a problem with the server.  Try again soon!');
-         }
-       }
-    });
-  });
+function includeHTML() {
+		  var z, i, elmnt, file, xhttp;
+		  /*loop through a collection of all HTML elements:*/
+		  z = document.getElementsByTagName("*");
+		  for (i = 0; i < z.length; i++) {
+			elmnt = z[i];
+			/*search for elements with a certain atrribute:*/
+			file = elmnt.getAttribute("w3-include-html");
+			if (file) {
+			  /*make an HTTP request using the attribute value as the file name:*/
+			  xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+				if (this.readyState == 4) {
+				  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+				  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+				  /*remove the attribute, and call this function once more:*/
+				  elmnt.removeAttribute("w3-include-html");
+				  includeHTML();
+				}
+			  } 
+			  xhttp.open("GET", file, true);
+			  xhttp.send();
+			  /*exit the function:*/
+			  return;
+			}
+		  }
+		}
   
 $(function Trial() {
        $.ajax({
@@ -127,23 +134,30 @@ $(function Trial() {
        success: function(data) {
          
 		var code = "<div class='w3-col s12 m12 w3-display-container'>";	
-		var obj = JSON.parse(data.nomP);
+		var nom = JSON.parse(data.nomP);
+		var description = JSON.parse(data.description);
+		var nbstring = data.nbDescription;
+		var nb = num = parseFloat(nbstring) || 0;
 		
-		for (i=0;i<5;i++) 
+		for (i=0;i<nb;i++) 
 		{
 			code += "<div class='w3-card w3-grey' style='width:100%'>";
 				code += "<img src='img/TEST2.png' alt='Lights' style='width:100%'>";
 				code += "<div class='w3-container w3-grey'>";
-					code += obj[i];
+					code += nom[i];
+					code += "</br>"; 
+					code += description[i];
 				code += "</div>"; 
 			code += "</div> <br>"; 
 		}
 		code += "</div>"; 
-	
 		
-		document.getElementById('trial').innerHTML = code;
+		//alert('avant');	
+		document.getElementById('evenement').innerHTML += code;
+		//alert('apres');	
+		document.getElementById('trial').innerHTML += code;
 		
-        
+		alert('Trial');	
 
        },
       statusCode: {
@@ -154,8 +168,7 @@ $(function Trial() {
     });
   }); 
   
-  
-  $(function TheFetch() {
+$(function Blonde() {
        $.ajax({
        url: 'http://barchezalphonse.fr',
        dataType: 'json',
@@ -163,23 +176,25 @@ $(function Trial() {
        success: function(data) {
          
 		var code = "<div class='w3-col s12 m12 w3-display-container'>";	
-		var obj = JSON.parse(data.descriptionP);
+		var nom = JSON.parse(data.nomP);
+		var description = JSON.parse(data.description);
+		var nbstring = data.nbDescription;
+		var nb = num = parseFloat(nbstring) || 0;
 		
-		Object.keys(obj).forEach(function(key) {
-		code += "<div class='w3-card w3-grey' style='width:100%'>";
+		for (i=0;i<nb;i++) 
+		{
+			code += "<div class='w3-card w3-grey' style='width:100%'>";
 				code += "<img src='img/TEST2.png' alt='Lights' style='width:100%'>";
 				code += "<div class='w3-container w3-grey'>";
-					code += obj[key];
+					code += nom[i];
+					code += "</br>"; 
+					code += description[i];
 				code += "</div>"; 
-			code += "</div> <br>";
-
-		});
+			code += "</div> <br>"; 
+		}
 		code += "</div>"; 
-	
-		
-		document.getElementById('trial').innerHTML = code;
-		alert('DONE');
-        
+			
+		document.getElementById('blonde').innerHTML += code;	
 
        },
       statusCode: {
