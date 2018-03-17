@@ -156,8 +156,7 @@ $(function Trial() {
 		document.getElementById('evenement').innerHTML += code;
 		//alert('apres');	
 		document.getElementById('trial').innerHTML += code;
-		
-		alert('Trial');	
+			
 
        },
       statusCode: {
